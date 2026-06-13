@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Command Center</title>
+  <link rel="stylesheet" href="/static/css/shell.css">
+</head>
+<body data-role="{{ user.role }}">
+
+<!-- ========================================================
+     SIDEBAR
+     ======================================================== -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-mark">S</div>
+    <span class="logo-label">Sales Command Center</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a href="#" class="nav-item active" data-view="home" id="nav-dashboard">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+        <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+        <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+      </svg>
+      <span>Dashboard</span>
+    </a>
+
+    <div class="nav-section-label">Workspace</div>
+
+    <a href="#" class="nav-item" data-view="section-internal" id="nav-internal">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <path d="M3 9l9-6 9 6v11a1 1 0 01-1 1H4a1 1 0 01-1-1z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span>Internal Rep</span>
+    </a>
+
+    <a href="#" class="nav-item" data-view="section-external" id="nav-external">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+      </svg>
+      <span>External Rep</span>
+    </a>
+
+    <div class="nav-divider"></div>
+
+    <a href="#" class="nav-item" data-view="favorites" id="nav-favorites">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+      <span>Favorites</span>
+    </a>
+
+    <a href="#" class="nav-item" data-view="recent" id="nav-recent">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <span>Recent</span>
+    </a>
+
+    <a href="#" class="nav-item" id="nav-dream" data-view="dream">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+      <span>Dream</span>
+    </a>
+
+    <a href="#" class="nav-item" id="nav-ai-chat" data-view="ai-chat">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.85 0 3.58-.5 5.07-1.38L21 22l-1.38-3.93A9.95 9.95 0 0022 12c0-5.52-4.48-10-10-10z"/>
+        <circle cx="8.5" cy="12" r="1.2" fill="currentColor"/>
+        <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+        <circle cx="15.5" cy="12" r="1.2" fill="currentColor"/>
+      </svg>
+      <span>AI Chat</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <a href="#" class="nav-item" data-view="settings" id="nav-settings">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+      </svg>
+      <span>Settings</span>
+    </a>
+    <a href="/logout" class="nav-item nav-logout">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+        <polyline points="16 17 21 12 16 7"/>
+        <line x1="21" y1="12" x2="9" y2="12"/>
+      </svg>
+      <span>Log Out</span>
+    </a>
+  </div>
+</aside>
+
+<!-- ========================================================
+     MAIN AREA
+     ======================================================== -->
+<div class="main-area">
+
+  <!-- TOP STRIP -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-left">
+      <div class="app-header" id="app-header">
+        <div class="app-glyph" id="app-glyph" style="display:none"></div>
+        <div class="app-title-group" id="app-title-group">
+          <h1 class="app-title" id="app-title">Sales Command Center</h1>
+          <p class="app-subtitle" id="app-subtitle">One unified platform. All your sales tools.</p>
+        </div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search tools...">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <button class="icon-btn bell-btn" id="bell-btn" title="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 01-3.46 0"/>
+        </svg>
+      </button>
+      <div class="rep-identity">
+        <div class="avatar">{{ user.avatar_initials }}</div>
+        <div class="rep-info">
+          <span class="rep-name">{{ user.display_name }}</span>
+          <span class="rep-role">{{ 'Internal Rep' if user.role == 'internal' else 'External Rep' }}</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT REGION -->
+  <div class="content-region" id="content-region">
+
+    <!-- HOME VIEW: Card Grid -->
+    <div class="view" id="view-home">
+      <div class="home-content" id="home-content">
+        {% for section in apps_config.sections %}
+        <div class="section-block" data-section="{{ section.id }}">
+          <div class="section-header">
+            <div class="section-glyph" style="background: {{ section.icon_color }}22; border-color: {{ section.icon_color }}33;">
+              {% if section.id == 'internal' %}
+              <svg viewBox="0 0 24 24" fill="none" stroke="{{ section.icon_color }}" stroke-width="2">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+              </svg>
+              {% else %}
+              <svg viewBox="0 0 24 24" fill="none" stroke="{{ section.icon_color }}" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+              </svg>
+              {% endif %}
+            </div>
+            <div class="section-title-group">
+              <h2 class="section-title">{{ section.label }}</h2>
+              <p class="section-subtitle">{{ section.subtitle }}</p>
+            </div>
+            <a href="#" class="view-all-link" data-section="{{ section.id }}">View all</a>
+          </div>
+          <div class="cards-grid">
+            {% for app in section.apps %}
+            <div class="app-card" data-app-id="{{ app.id }}" data-app-path="{{ app.path }}"
+                 data-title="{{ app.title }}" data-subtitle="{{ app.subtitle }}"
+                 data-glyph="{{ app.glyph }}" data-glyph-color="{{ app.glyph_color }}">
+              <div class="card-hero" style="background: linear-gradient(135deg, {{ app.glyph_color }}18, {{ app.glyph_color }}08);">
+                <div class="card-hero-inner" id="hero-{{ app.id }}">
+                  {{ app.title | replace(' ', '\n') }}
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="card-icon-wrap" style="background: {{ app.glyph_color }}22; border-color: {{ app.glyph_color }}33;">
+                  <div class="card-icon" data-glyph="{{ app.glyph }}" style="color: {{ app.glyph_color }};"></div>
+                </div>
+                <div class="card-text">
+                  <h3 class="card-title">{{ app.title }}</h3>
+                  <p class="card-desc">{{ app.subtitle }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- APP VIEW: iframe container -->
+    <div class="view" id="view-app" style="display:none;">
+      <div class="iframe-pool" id="iframe-pool"></div>
+    </div>
+
+    <!-- DREAM VIEW -->
+    <div class="view" id="view-dream" style="display:none;">
+      <div class="panel-page">
+        <div class="panel-header">
+          <h2>Dream</h2>
+          <div class="panel-header-actions">
+            <button class="btn-secondary" id="dream-run-btn">Run Dream Now</button>
+          </div>
+        </div>
+        <div id="dream-output" class="dream-output">
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+            </svg>
+            <p>No dream report yet. Run Dream to analyze your accounts.</p>
+          </div>
+        </div>
+        <div class="dream-history-wrap">
+          <h3>Past Reports</h3>
+          <div id="dream-history-list" class="dream-history-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS VIEW -->
+    <div class="view" id="view-settings" style="display:none;">
+      <div class="panel-page">
+        <div class="panel-header">
+          <h2>Settings</h2>
+        </div>
+        <div class="settings-tabs">
+          <button class="settings-tab active" data-tab="cards">App Cards</button>
+          <button class="settings-tab" data-tab="dream">Dream Config</button>
+        </div>
+
+        <!-- Cards config -->
+        <div class="settings-section" id="settings-cards">
+          <p class="settings-note">Configure app cards: titles, descriptions, ports, and icons.</p>
+          <div id="cards-config-list"></div>
+          <button class="btn-primary" id="save-cards-btn">Save Card Config</button>
+        </div>
+
+        <!-- Dream config -->
+        <div class="settings-section" id="settings-dream" style="display:none;">
+          <div class="settings-form">
+            <div class="form-group">
+              <label>Tardy Order Threshold (days)</label>
+              <input type="number" id="cfg-tardy-days" min="1" max="365">
+            </div>
+            <div class="form-group">
+              <label>Top Accounts Count</label>
+              <input type="number" id="cfg-top-accounts" min="1" max="1000">
+            </div>
+            <div class="form-group">
+              <label>Stale Quote Threshold (days)</label>
+              <input type="number" id="cfg-quote-stale" min="1" max="365">
+            </div>
+            <div class="form-group">
+              <label>New Equipment Window (days)</label>
+              <input type="number" id="cfg-equip-new" min="1" max="90">
+            </div>
+            <div class="form-group">
+              <label>Equipment Expired Threshold (days)</label>
+              <input type="number" id="cfg-equip-expired" min="1" max="365">
+            </div>
+            <div class="form-group">
+              <label>Monitored Cities (comma-separated)</label>
+              <textarea id="cfg-cities" rows="3" placeholder="e.g. Spokane, Phoenix, Reno"></textarea>
+            </div>
+            <button class="btn-primary" id="save-dream-cfg-btn">Save Dream Config</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAVORITES / RECENT placeholders -->
+    <div class="view" id="view-favorites" style="display:none;">
+      <div class="panel-page">
+        <div class="panel-header"><h2>Favorites</h2></div>
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <p>Click the star on any app card to add it to Favorites.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-recent" style="display:none;">
+      <div class="panel-page">
+        <div class="panel-header"><h2>Recently Used</h2></div>
+        <div id="recent-cards-grid" class="cards-grid mini"></div>
+      </div>
+    </div>
+
+    <div class="view" id="view-ai-chat" style="display:none;">
+      <div class="panel-page">
+        <div class="panel-header"><h2>AI Chat</h2></div>
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.85 0 3.58-.5 5.07-1.38L21 22l-1.38-3.93A9.95 9.95 0 0022 12c0-5.52-4.48-10-10-10z"/>
+          </svg>
+          <p>AI Chat will be available in a future release.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end content-region -->
+</div><!-- end main-area -->
+
+<script>
+  // Embed config for JS
+  const APPS_CONFIG = {{ apps_config | tojson }};
+  const USER = {{ user | tojson }};
+</script>
+<script src="/static/js/shell.js"></script>
+</body>
+</html>

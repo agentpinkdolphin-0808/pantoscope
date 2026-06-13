@@ -1,0 +1,5 @@
+username,display_name,role,states_covered
+jrisley,John Risley,internal,ALL
+evanarsdale,Evan Arsdale,external,CA,NV,AZ,OR,WA
+jskinner,Justin Skinner,internal,ALL
+jdruce,Jacob Druce,external,TX,OK,LA,AR,MS

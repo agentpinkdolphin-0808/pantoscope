@@ -1,0 +1,9 @@
+{
+  "tardy_days_threshold": 35,
+  "top_accounts_count": 200,
+  "quote_stale_days": 30,
+  "new_equipment_days": 7,
+  "equipment_expired_days": 30,
+  "monitored_cities": [],
+  "schedule": "0 6 * * 0"
+}

@@ -1,0 +1,16 @@
+quote_id,account_id,created_date,amount,status,type
+Q2001,A001,2026-05-01,4500.00,open,standard
+Q2002,A003,2026-04-08,9200.00,open,standard
+Q2003,A005,2026-06-10,18000.00,open,standard
+Q2004,A007,2026-03-15,35000.00,open,standard
+Q2005,A009,2026-05-20,3800.00,open,standard
+Q2006,A011,2026-04-22,12000.00,accepted,standard
+Q2007,A013,2026-05-30,7600.00,open,standard
+Q2008,A016,2026-02-10,62000.00,open,standard
+Q2009,A018,2026-05-05,16500.00,open,standard
+Q2010,A020,2026-03-28,8900.00,open,standard
+Q2011,A002,2026-06-08,24000.00,open,standard
+Q2012,A006,2026-04-14,11200.00,open,standard
+Q2013,A008,2026-05-28,5400.00,open,standard
+Q2014,A017,2026-03-01,14000.00,open,standard
+Q2015,A024,2026-06-01,41000.00,open,standard

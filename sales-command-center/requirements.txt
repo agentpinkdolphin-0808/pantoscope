@@ -1,0 +1,4 @@
+flask>=3.0
+flask-session>=0.6
+anthropic>=0.30
+python-dotenv>=1.0

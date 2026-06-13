@@ -1,0 +1,26 @@
+account_id,account_name,tier,customer_since,account_manager,city,state,open_ar_balance,reward_points
+A001,Spokane Eye Clinic,Gold,2019-03-12,jrisley,Spokane,WA,12450.00,8420
+A002,Pacific Lens Group,Platinum,2016-07-08,jrisley,Seattle,WA,34200.00,22100
+A003,Desert Vision Center,Gold,2020-11-01,evanarsdale,Phoenix,AZ,8750.00,5300
+A004,Sun Valley Optometry,Silver,2022-01-15,evanarsdale,Las Vegas,NV,3200.00,1800
+A005,Bay Area Eye Associates,Platinum,2015-04-22,jskinner,San Francisco,CA,67800.00,41000
+A006,Golden State Vision,Gold,2018-09-30,jskinner,Los Angeles,CA,19300.00,11200
+A007,Lone Star Optics,Platinum,2014-02-17,jdruce,Houston,TX,88900.00,54000
+A008,Gulf Coast Eye Care,Gold,2017-05-14,jdruce,New Orleans,LA,22100.00,13400
+A009,Cascade Vision Group,Silver,2021-06-03,evanarsdale,Portland,OR,5600.00,3100
+A010,Mountain West Eye Care,Gold,2019-12-20,evanarsdale,Reno,NV,14800.00,8900
+A011,Emerald City Optometry,Platinum,2016-10-05,jrisley,Seattle,WA,45600.00,28700
+A012,Valley View Vision,Silver,2023-02-28,jrisley,Yakima,WA,2100.00,900
+A013,Cactus Eye Specialists,Gold,2018-07-19,evanarsdale,Scottsdale,AZ,16700.00,9800
+A014,Redwood Optical,Gold,2020-04-10,jskinner,San Jose,CA,11200.00,6400
+A015,Sunset Eye Studio,Silver,2022-08-05,jskinner,San Diego,CA,4300.00,2200
+A016,Texas State Optometry,Platinum,2013-11-30,jdruce,Dallas,TX,112000.00,71000
+A017,Bayou Vision Center,Gold,2017-03-22,jdruce,Baton Rouge,LA,18500.00,10700
+A018,Northwest Eye Partners,Platinum,2015-08-14,jrisley,Bellingham,WA,52300.00,33600
+A019,Sierra Nevada Optics,Silver,2021-10-01,evanarsdale,Fresno,CA,6900.00,3700
+A020,Harbor Eye Associates,Gold,2019-06-18,jskinner,Long Beach,CA,21400.00,12900
+A021,Panhandle Eye Care,Silver,2022-05-12,jdruce,Amarillo,TX,3800.00,2000
+A022,Olympic Eye Center,Gold,2018-02-28,jrisley,Tacoma,WA,17600.00,10200
+A023,Neon Oasis Vision,Silver,2023-01-07,evanarsdale,Henderson,NV,1900.00,800
+A024,Southern Cal Eye Group,Platinum,2014-09-16,jskinner,Riverside,CA,79500.00,49000
+A025,Lone Pine Optical,Silver,2022-11-30,jdruce,Lubbock,TX,4100.00,2100
