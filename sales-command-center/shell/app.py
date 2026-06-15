@@ -221,7 +221,7 @@ def api_dream_config_save():
 @app.route("/api/dream/run", methods=["POST"])
 @login_required
 def api_dream_run():
-    from dream import run_dream
+    from dream import run_dream  # type: ignore[import]
     username = session["username"]
     role = session["role"]
     states = session["states"]
@@ -278,6 +278,76 @@ def serve_icon(filename):
 @app.route("/static/heroes/<path:filename>")
 def serve_hero(filename):
     return send_from_directory(ROOT / "heroes", filename)
+
+
+@app.route("/static/concepts/<path:filename>")
+def serve_concept(filename):
+    return send_from_directory(ROOT / "concepts", filename)
+
+
+# ---------------------------------------------------------------------------
+# Concept image upload / delete
+# ---------------------------------------------------------------------------
+
+ALLOWED_CONCEPT_EXTS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+CONCEPTS_DIR = ROOT / "concepts"
+
+
+def _find_app_in_config(cfg, app_id):
+    for section in cfg.get("sections", []):
+        for app in section.get("apps", []):
+            if app["id"] == app_id:
+                return app
+    return None
+
+
+@app.route("/api/upload/concept/<app_id>", methods=["POST"])
+@login_required
+def upload_concept(app_id):
+    if "image" not in request.files:
+        return jsonify({"ok": False, "error": "No file field 'image'"}), 400
+    f = request.files["image"]
+    if not f.filename:
+        return jsonify({"ok": False, "error": "Empty filename"}), 400
+    ext = Path(f.filename).suffix.lower()
+    if ext not in ALLOWED_CONCEPT_EXTS:
+        return jsonify({"ok": False, "error": f"File type {ext} not allowed"}), 400
+
+    # Remove any existing concept image for this app
+    for old_ext in ALLOWED_CONCEPT_EXTS:
+        old_file = CONCEPTS_DIR / f"{app_id}{old_ext}"
+        if old_file.exists():
+            old_file.unlink()
+
+    dest = CONCEPTS_DIR / f"{app_id}{ext}"
+    f.save(str(dest))
+
+    relative_path = f"concepts/{app_id}{ext}"
+    cfg = load_apps_config()
+    app_entry = _find_app_in_config(cfg, app_id)
+    if app_entry is None:
+        return jsonify({"ok": False, "error": "App not found"}), 404
+    app_entry["concept_image"] = relative_path
+    save_apps_config(cfg)
+
+    return jsonify({"ok": True, "path": relative_path})
+
+
+@app.route("/api/upload/concept/<app_id>", methods=["DELETE"])
+@login_required
+def delete_concept(app_id):
+    for ext in ALLOWED_CONCEPT_EXTS:
+        old_file = CONCEPTS_DIR / f"{app_id}{ext}"
+        if old_file.exists():
+            old_file.unlink()
+
+    cfg = load_apps_config()
+    app_entry = _find_app_in_config(cfg, app_id)
+    if app_entry:
+        app_entry.pop("concept_image", None)
+        save_apps_config(cfg)
+
+    return jsonify({"ok": True})
 
 
 # ---------------------------------------------------------------------------

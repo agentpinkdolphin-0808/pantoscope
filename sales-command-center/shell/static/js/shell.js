@@ -129,6 +129,7 @@ function showView(viewName) {
     'section-internal': 'view-home',
     'section-external': 'view-home',
     'app':              'view-app',
+    'concept':          'view-concept',
     'dream':            'view-dream',
     'settings':         'view-settings',
     'favorites':        'view-favorites',
@@ -163,6 +164,12 @@ function setHeaderForApp(appInfo) {
   dom.appGlyph.innerHTML = ICONS[appInfo.glyph] || ICONS['analytics'];
 }
 
+function filterSections(sectionId) {
+  document.querySelectorAll('.section-block').forEach(block => {
+    block.style.display = (!sectionId || block.dataset.section === sectionId) ? '' : 'none';
+  });
+}
+
 function setHeaderForShell(title, subtitle) {
   dom.appTitle.textContent = title || 'Sales Command Center';
   dom.appSubtitle.textContent = subtitle || 'One unified platform. All your sales tools.';
@@ -172,9 +179,21 @@ function setHeaderForShell(title, subtitle) {
 // ======================================================================
 // App launching + iframe pool
 // ======================================================================
+function showConceptImage(appInfo) {
+  setHeaderForApp(appInfo);
+  showView('concept');
+  document.getElementById('concept-img').src = `/static/${appInfo.concept_image}`;
+  document.getElementById('concept-app-label').textContent = appInfo.title;
+}
+
 function launchApp(appInfo) {
   logActivity('app_open', appInfo.title);
   addToRecent(appInfo);
+
+  if (appInfo.concept_image) {
+    showConceptImage(appInfo);
+    return;
+  }
 
   setHeaderForApp(appInfo);
   showView('app');
@@ -477,6 +496,7 @@ function buildCardsConfig() {
       const item = document.createElement('div');
       item.className = 'card-config-item';
       item.dataset.appId = app.id;
+      const hasImage = !!app.concept_image;
       item.innerHTML = `
         <h4>${app.title} <span style="color:var(--text-dim);font-size:0.75rem;font-weight:400;">(${section.label})</span></h4>
         <div class="card-config-grid">
@@ -501,8 +521,74 @@ function buildCardsConfig() {
             <input type="text" data-field="path" value="${app.path}">
           </div>
         </div>
+        <div class="concept-upload-row">
+          <label>Concept Image</label>
+          <div class="concept-upload-inner" id="concept-inner-${app.id}">
+            ${hasImage
+              ? `<img class="concept-thumb" src="/static/${app.concept_image}" alt="">`
+              : `<span class="concept-none">No image set</span>`}
+            <label class="btn-upload">
+              ${hasImage ? 'Replace' : 'Choose Image'}
+              <input type="file" class="concept-file-input" accept="image/*" data-app-id="${app.id}">
+            </label>
+            ${hasImage
+              ? `<button class="btn-clear-concept" data-app-id="${app.id}">Clear</button>`
+              : ''}
+          </div>
+        </div>
       `;
       list.appendChild(item);
+
+      // File upload handler
+      item.querySelector('.concept-file-input').addEventListener('change', async function () {
+        if (!this.files.length) return;
+        const appId = this.dataset.appId;
+        const formData = new FormData();
+        formData.append('image', this.files[0]);
+        try {
+          const res = await fetch(`/api/upload/concept/${appId}`, { method: 'POST', body: formData });
+          const data = await res.json();
+          if (data.ok) {
+            // Update in-memory config
+            const appEntry = getAllApps().find(a => a.id === appId);
+            if (appEntry) appEntry.concept_image = data.path;
+            for (const section of APPS_CONFIG.sections) {
+              const a = section.apps.find(x => x.id === appId);
+              if (a) a.concept_image = data.path;
+            }
+            toast(`Concept image set for ${appId}.`, 'success');
+            buildCardsConfig(); // refresh the settings panel
+          } else {
+            toast('Upload failed: ' + (data.error || 'Unknown'), 'error');
+          }
+        } catch (e) {
+          toast('Network error during upload.', 'error');
+        }
+      });
+
+      // Clear button handler (only present when image is set)
+      const clearBtn = item.querySelector('.btn-clear-concept');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', async function () {
+          const appId = this.dataset.appId;
+          try {
+            const res = await fetch(`/api/upload/concept/${appId}`, { method: 'DELETE' });
+            const data = await res.json();
+            if (data.ok) {
+              for (const section of APPS_CONFIG.sections) {
+                const a = section.apps.find(x => x.id === appId);
+                if (a) delete a.concept_image;
+              }
+              toast(`Concept image cleared for ${appId}.`, 'success');
+              buildCardsConfig();
+            } else {
+              toast('Clear failed.', 'error');
+            }
+          } catch (e) {
+            toast('Network error clearing image.', 'error');
+          }
+        });
+      }
     }
   }
 }
@@ -583,10 +669,20 @@ document.querySelectorAll('.nav-item[data-view]').forEach(el => {
     e.preventDefault();
     const view = el.dataset.view;
 
-    // If returning to home from app view, restore shell header
-    if (view === 'home' || view === 'section-internal' || view === 'section-external') {
+    if (view === 'home') {
       setHeaderForShell();
       state.activeAppId = null;
+      filterSections(null);
+    }
+    if (view === 'section-internal') {
+      setHeaderForShell('Internal Rep', 'Tools and insights designed for internal sales teams.');
+      state.activeAppId = null;
+      filterSections('internal');
+    }
+    if (view === 'section-external') {
+      setHeaderForShell('External Rep', 'Essential tools for reps in the field.');
+      state.activeAppId = null;
+      filterSections('external');
     }
 
     if (view === 'settings') {
@@ -625,6 +721,7 @@ document.querySelectorAll('.view-all-link').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     const sectionId = link.dataset.section;
+    filterSections(sectionId);
     showView(`section-${sectionId}`);
   });
 });
@@ -666,6 +763,7 @@ function buildRecentGrid() {
 function init() {
   injectCardIcons();
   initSettingsTabs();
+  filterSections(null);
   showView('home');
   setHeaderForShell();
 }

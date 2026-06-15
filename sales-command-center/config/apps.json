@@ -1,122 +1,123 @@
 {
   "sections": [
     {
-      "id": "internal",
-      "label": "Internal Rep",
-      "subtitle": "Tools and insights designed for internal sales teams.",
-      "icon": "internal",
-      "icon_color": "#22c55e",
       "apps": [
         {
-          "id": "account-overview",
-          "title": "Account Overview",
-          "subtitle": "View account details, key contacts, activities and overall account health.",
-          "port": 5101,
-          "path": "account-overview",
           "glyph": "account",
           "glyph_color": "#3b82f6",
-          "hero": "heroes/account-overview.jpg"
+          "hero": "heroes/account-overview.png",
+          "id": "account-overview",
+          "path": "account-overview",
+          "port": 5101,
+          "subtitle": "View account details, key contacts, activities and overall account health.",
+          "title": "Customer Intelligence Agent",
+          "concept_image": "concepts/account-overview.png"
         },
         {
-          "id": "sales-history",
-          "title": "Sales History",
-          "subtitle": "Explore historical sales data, forecast performance and deep dive into trends.",
-          "port": 5102,
-          "path": "sales-history",
           "glyph": "chart",
           "glyph_color": "#8b5cf6",
-          "hero": "heroes/sales-history.jpg"
+          "hero": "heroes/sales-history.png",
+          "id": "sales-history",
+          "path": "sales-history",
+          "port": 5102,
+          "subtitle": "Explore historical sales data, forecast performance and deep dive into trends.",
+          "title": "Sales History"
         },
         {
-          "id": "pipeline-management",
-          "title": "Pipeline Management",
-          "subtitle": "Track opportunities, manage stages and forecast revenue with confidence.",
-          "port": 5103,
-          "path": "pipeline-management",
           "glyph": "pipeline",
           "glyph_color": "#6366f1",
-          "hero": "heroes/pipeline-management.jpg"
+          "hero": "heroes/pipeline-management.png",
+          "id": "pipeline-management",
+          "path": "pipeline-management",
+          "port": 5103,
+          "subtitle": "Track opportunities, manage stages and forecast revenue with confidence.",
+          "title": "Pipeline Management"
         },
         {
-          "id": "reports-analytics",
-          "title": "Reports & Analytics",
-          "subtitle": "Access detailed reports and analytics to drive data-backed decisions.",
-          "port": 5104,
-          "path": "reports-analytics",
           "glyph": "analytics",
           "glyph_color": "#0ea5e9",
-          "hero": "heroes/reports-analytics.jpg"
+          "hero": "heroes/reports-analytics.png",
+          "id": "reports-analytics",
+          "path": "reports-analytics",
+          "port": 5104,
+          "subtitle": "Access detailed reports and analytics to drive data-backed decisions.",
+          "title": "Reports & Analytics"
         },
         {
-          "id": "team-performance",
-          "title": "Team Performance",
-          "subtitle": "Monitor team KPIs, activity trends and overall team performance.",
-          "port": 5105,
-          "path": "team-performance",
           "glyph": "team",
           "glyph_color": "#14b8a6",
-          "hero": "heroes/team-performance.jpg"
+          "hero": "heroes/team-performance.png",
+          "id": "team-performance",
+          "path": "team-performance",
+          "port": 5105,
+          "subtitle": "Monitor team KPIs, activity trends and overall team performance.",
+          "title": "Team Performance"
         }
-      ]
+      ],
+      "icon": "internal",
+      "icon_color": "#22c55e",
+      "id": "internal",
+      "label": "Internal Rep",
+      "subtitle": "Tools and insights designed for internal sales teams."
     },
     {
-      "id": "external",
-      "label": "External Rep",
-      "subtitle": "Essential tools for reps in the field.",
-      "icon": "external",
-      "icon_color": "#f59e0b",
       "apps": [
         {
-          "id": "route-planner",
-          "title": "Route Planner",
-          "subtitle": "Plan efficient routes, optimize stops and save time in the field.",
-          "port": 5201,
-          "path": "route-planner",
           "glyph": "route",
           "glyph_color": "#22c55e",
-          "hero": "heroes/route-planner.jpg"
+          "hero": "heroes/route-planner.png",
+          "id": "route-planner",
+          "path": "route-planner",
+          "port": 5201,
+          "subtitle": "Plan efficient routes, optimize stops and save time in the field.",
+          "title": "Route Planner"
         },
         {
-          "id": "visit-accounts",
-          "title": "Visit Accounts",
-          "subtitle": "View account details, check-in to add notes and track visit history.",
-          "port": 5202,
-          "path": "visit-accounts",
           "glyph": "visit",
           "glyph_color": "#0ea5e9",
-          "hero": "heroes/visit-accounts.jpg"
+          "hero": "heroes/visit-accounts.png",
+          "id": "visit-accounts",
+          "path": "visit-accounts",
+          "port": 5202,
+          "subtitle": "View account details, check-in to add notes and track visit history.",
+          "title": "Visit Accounts"
         },
         {
-          "id": "merchandising",
-          "title": "Merchandising",
-          "subtitle": "Capture shelf photos, track compliance and manage merchandising tasks.",
-          "port": 5203,
-          "path": "merchandising",
           "glyph": "merch",
           "glyph_color": "#f59e0b",
-          "hero": "heroes/merchandising.jpg"
+          "hero": "heroes/merchandising.png",
+          "id": "merchandising",
+          "path": "merchandising",
+          "port": 5203,
+          "subtitle": "Capture shelf photos, track compliance and manage merchandising tasks.",
+          "title": "Merchandising"
         },
         {
-          "id": "surveys-feedback",
-          "title": "Surveys & Feedback",
-          "subtitle": "Collect feedback, run surveys and share product intel from the field.",
-          "port": 5204,
-          "path": "surveys-feedback",
           "glyph": "survey",
           "glyph_color": "#6b7280",
-          "hero": "heroes/surveys-feedback.jpg"
+          "hero": "heroes/surveys-feedback.png",
+          "id": "surveys-feedback",
+          "path": "surveys-feedback",
+          "port": 5204,
+          "subtitle": "Collect feedback, run surveys and share product intel from the field.",
+          "title": "Surveys & Feedback"
         },
         {
-          "id": "orders-invoices",
-          "title": "Orders & Invoices",
-          "subtitle": "Create orders, view invoices and track order status from anywhere.",
-          "port": 5205,
-          "path": "orders-invoices",
           "glyph": "orders",
           "glyph_color": "#1d4ed8",
-          "hero": "heroes/orders-invoices.jpg"
+          "hero": "heroes/orders-invoices.png",
+          "id": "orders-invoices",
+          "path": "orders-invoices",
+          "port": 5205,
+          "subtitle": "Create orders, view invoices and track order status from anywhere.",
+          "title": "Orders & Invoices"
         }
-      ]
+      ],
+      "icon": "external",
+      "icon_color": "#f59e0b",
+      "id": "external",
+      "label": "External Rep",
+      "subtitle": "Essential tools for reps in the field."
     }
   ]
 }
