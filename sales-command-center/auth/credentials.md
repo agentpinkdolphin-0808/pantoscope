@@ -6,5 +6,5 @@
 |---|---|---|---|
 | jrisley | Johnistheman | internal | ALL |
 | evanarsdale | Ginoistheman | external | CA,NV,AZ,OR,WA |
-| jskinner | Justinistheman | internal | ALL |
-| jdruce | Jacobistheman | external | TX,OK,LA,AR,MS |
+| jskinner | Justinistheman | external | ALL |
+| jdruce | Jacobistheman | internal | TX,OK,LA,AR,MS |

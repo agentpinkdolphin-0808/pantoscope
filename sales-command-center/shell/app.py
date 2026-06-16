@@ -16,6 +16,7 @@ CONFIG_DIR = ROOT / "config"
 AUTH_FILE = ROOT / "auth" / "credentials.md"
 VAULT_DIR = ROOT / "vault" / "users"
 ENGINE_DIR = ROOT / "engine"
+USER_IMAGES_DIR = ROOT / "auth" / "user images"
 
 sys.path.insert(0, str(ENGINE_DIR))
 
@@ -63,6 +64,14 @@ def load_user_config(username):
             k, v = line.split(":", 1)
             cfg[k.strip()] = v.strip()
     return cfg
+
+
+def find_user_image(username):
+    """Return the Path to the user's avatar image, or None if not found."""
+    for f in USER_IMAGES_DIR.glob(f"{username}*"):
+        if f.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif"}:
+            return f
+    return None
 
 
 def login_required(f):
@@ -177,11 +186,14 @@ def logout():
 @login_required
 def home():
     apps_cfg = load_apps_config()
+    username = session["username"]
+    has_image = find_user_image(username) is not None
     user = {
-        "username": session["username"],
+        "username": username,
         "display_name": session["display_name"],
         "role": session["role"],
         "avatar_initials": session["avatar_initials"],
+        "avatar_image_url": f"/static/user-images/{username}" if has_image else None,
     }
     return render_template("shell.html", user=user, apps_config=apps_cfg)
 
@@ -269,6 +281,15 @@ def api_user():
 # ---------------------------------------------------------------------------
 # Static assets
 # ---------------------------------------------------------------------------
+
+@app.route("/static/user-images/<username>")
+@login_required
+def serve_user_image(username):
+    img_path = find_user_image(username)
+    if img_path is None:
+        abort(404)
+    return send_from_directory(img_path.parent, img_path.name)
+
 
 @app.route("/static/icons/<path:filename>")
 def serve_icon(filename):

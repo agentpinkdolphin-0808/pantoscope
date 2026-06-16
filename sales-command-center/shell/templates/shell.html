@@ -132,7 +132,7 @@
         </svg>
       </button>
       <div class="rep-identity">
-        <div class="avatar">{{ user.avatar_initials }}</div>
+        <div class="avatar" {% if user.avatar_image_url %}style="background-image: url('{{ user.avatar_image_url }}'); background-size: cover; background-position: center; color: transparent;"{% endif %}>{{ user.avatar_initials if not user.avatar_image_url else '' }}</div>
         <div class="rep-info">
           <span class="rep-name">{{ user.display_name }}</span>
           <span class="rep-role">{{ 'Internal Rep' if user.role == 'internal' else 'External Rep' }}</span>
@@ -212,8 +212,15 @@
     <!-- DREAM VIEW -->
     <div class="view" id="view-dream" style="display:none;">
       <div class="panel-page">
-        <div class="panel-header">
-          <h2>Dream</h2>
+        <div class="dream-banner">
+          <img src="/static/heroes/dream.png" alt="Dream">
+          <div class="dream-banner-overlay">
+            <h2>Dream</h2>
+            <p>Dream analyzes your accounts every Sunday at 6 AM — or whenever you run it — to flag tardy orders, aging quotes, and equipment opportunities across your territory. Each weekly run is saved, with the last 12 weeks kept on hand.</p>
+          </div>
+        </div>
+        <div class="panel-header" style="margin-top: 1.5rem;">
+          <div></div>
           <div class="panel-header-actions">
             <button class="btn-secondary" id="dream-run-btn">Run Dream Now</button>
           </div>
@@ -246,7 +253,7 @@
 
         <!-- Cards config -->
         <div class="settings-section" id="settings-cards">
-          <p class="settings-note">Configure app cards: titles, descriptions, ports, and icons.</p>
+          <p class="settings-note">Configure app cards: titles, descriptions, and icons.</p>
           <div id="cards-config-list"></div>
           <button class="btn-primary" id="save-cards-btn">Save Card Config</button>
         </div>

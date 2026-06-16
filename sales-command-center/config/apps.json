@@ -14,6 +14,7 @@
           "title": "Customer Intelligence Agent"
         },
         {
+          "concept_image": "concepts/sales-history.png",
           "glyph": "chart",
           "glyph_color": "#8b5cf6",
           "hero": "heroes/sales-history.png",
@@ -24,6 +25,7 @@
           "title": "Prospecting Agent"
         },
         {
+          "concept_image": "concepts/pipeline-management.png",
           "glyph": "pipeline",
           "glyph_color": "#6366f1",
           "hero": "heroes/pipeline-management.png",
@@ -31,9 +33,10 @@
           "path": "pipeline-management",
           "port": 5103,
           "subtitle": "Track opportunities, manage stages and forecast revenue with confidence.",
-          "title": "Agent"
+          "title": "Opportunity Agent"
         },
         {
+          "concept_image": "concepts/reports-analytics.png",
           "glyph": "analytics",
           "glyph_color": "#0ea5e9",
           "hero": "heroes/reports-analytics.png",
@@ -41,9 +44,10 @@
           "path": "reports-analytics",
           "port": 5104,
           "subtitle": "Access detailed reports and analytics to drive data-backed decisions.",
-          "title": "Reports & Analytics"
+          "title": "Pricing Agent"
         },
         {
+          "concept_image": "concepts/team-performance.png",
           "glyph": "team",
           "glyph_color": "#14b8a6",
           "hero": "heroes/team-performance.png",
@@ -51,7 +55,7 @@
           "path": "team-performance",
           "port": 5105,
           "subtitle": "Monitor team KPIs, activity trends and overall team performance.",
-          "title": "Team Performance"
+          "title": "Customer Search"
         }
       ],
       "icon": "internal",
@@ -80,7 +84,7 @@
           "path": "visit-accounts",
           "port": 5202,
           "subtitle": "View account details, check-in to add notes and track visit history.",
-          "title": "Visit Accounts"
+          "title": "Interactive Customer Map"
         },
         {
           "glyph": "merch",
@@ -90,7 +94,7 @@
           "path": "merchandising",
           "port": 5203,
           "subtitle": "Capture shelf photos, track compliance and manage merchandising tasks.",
-          "title": "Merchandising"
+          "title": "Distributor Rep Portal"
         },
         {
           "glyph": "survey",
@@ -100,7 +104,7 @@
           "path": "surveys-feedback",
           "port": 5204,
           "subtitle": "Collect feedback, run surveys and share product intel from the field.",
-          "title": "Surveys & Feedback"
+          "title": "Smart Sheet Leads"
         },
         {
           "glyph": "orders",
@@ -110,7 +114,7 @@
           "path": "orders-invoices",
           "port": 5205,
           "subtitle": "Create orders, view invoices and track order status from anywhere.",
-          "title": "Orders & Invoices"
+          "title": "Tracings Compiler Agent"
         }
       ],
       "icon": "external",

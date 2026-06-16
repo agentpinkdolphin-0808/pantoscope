@@ -504,10 +504,7 @@ function buildCardsConfig() {
             <label>Title</label>
             <input type="text" data-field="title" value="${app.title}">
           </div>
-          <div class="form-group">
-            <label>Port</label>
-            <input type="number" data-field="port" value="${app.port}">
-          </div>
+
           <div class="form-group" style="grid-column:1/-1;">
             <label>Subtitle / Description</label>
             <input type="text" data-field="subtitle" value="${app.subtitle}">
@@ -515,10 +512,6 @@ function buildCardsConfig() {
           <div class="form-group">
             <label>Glyph Color</label>
             <input type="text" data-field="glyph_color" value="${app.glyph_color}">
-          </div>
-          <div class="form-group">
-            <label>Path</label>
-            <input type="text" data-field="path" value="${app.path}">
           </div>
         </div>
         <div class="concept-upload-row">
@@ -602,7 +595,7 @@ async function saveCardsConfig() {
       if (app) {
         item.querySelectorAll('[data-field]').forEach(input => {
           const field = input.dataset.field;
-          app[field] = field === 'port' ? parseInt(input.value) : input.value;
+          app[field] = input.value;
         });
       }
     }
