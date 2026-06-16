@@ -1,0 +1,10 @@
+practice_id,practice_name,city,state,county,lat,lng,revenue_12mo,orders_12mo,avg_order_value,revenue_delta,orders_delta,aov_delta,band,at_risk,opportunity_total,account_owner,last_contact,value_badge
+p1,Northwest Eye Surgeons,Kirkland,WA,King,47.6815,-122.2087,156780,55,2851,18,12,5,High,false,52300,Alex Morgan,2026-05-04,High Value Account
+p2,Spokane Eye Clinic,Seattle,WA,King,47.6062,-122.3321,128540,48,2678,14,9,11,High,false,37450,Alex Morgan,2026-05-13,High Value Account
+p3,Bellevue Vision Clinic,Bellevue,WA,King,47.6101,-122.2015,62310,26,2396,9,13,-4,Medium,false,21600,Alex Morgan,2026-05-07,Medium Value Account
+p4,Issaquah Eye Center,Issaquah,WA,King,47.5301,-122.0326,85420,32,2669,12,8,4,High,false,28400,Priya Patel,2026-05-01,High Value Account
+p5,Renton Vision Source,Renton,WA,King,47.4829,-122.2171,34210,18,1901,-3,-5,2,Medium,false,9800,Priya Patel,2026-05-08,Medium Value Account
+p6,Valley Eye Specialists,Kent,WA,King,47.3809,-122.2348,41980,21,1999,6,4,2,Medium,false,14200,Priya Patel,2026-05-12,Medium Value Account
+p7,Puget Sound Eye Care,Silverdale,WA,Kitsap,47.6445,-122.6952,45230,21,2154,5,3,2,Medium,false,8900,Jordan Lee,2026-05-06,Medium Value Account
+p8,Peninsula Eye Associates,Bremerton,WA,Kitsap,47.5673,-122.6329,18450,12,1538,-8,-10,-3,Low,true,2100,Jordan Lee,2026-04-19,At Risk Account
+p9,South Sound Eye Care,Tacoma,WA,Pierce,47.2529,-122.4443,22310,13,1716,2,1,1,Low,false,4200,Maria Gomez,2026-04-27,Standard Account

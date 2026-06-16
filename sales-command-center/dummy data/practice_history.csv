@@ -1,0 +1,43 @@
+practice_id,event_date,event_type,description,amount
+p1,2026-01-15,order,Quarterly fluorescein and AK-Fluor restock,38500
+p1,2026-02-20,contact,QBR call - reviewed OCT imaging expansion,
+p1,2026-03-18,order,OCT contrast dye and proparacaine restock,41200
+p1,2026-04-22,order,Loyalty tier rewards redemption,22800
+p1,2026-05-04,contact,On-site visit - discussed multi-location rollout,
+p2,2026-01-22,order,Fluorescein strips and proparacaine restock,29400
+p2,2026-02-26,contact,Phone check-in - AK-Fluor reorder discussion,
+p2,2026-03-21,order,Tetracaine and phenylephrine restock,31600
+p2,2026-04-19,order,Tropicamide and ICG dye order,26100
+p2,2026-05-13,contact,Account review - discussed ICG usage expansion,
+p3,2026-01-30,order,Fluorescein strips restock,15200
+p3,2026-03-04,contact,Email check-in - BIS pilot interest,
+p3,2026-03-29,order,Proparacaine and tetracaine restock,18400
+p3,2026-04-25,order,Tropicamide reorder,11600
+p3,2026-05-07,contact,On-site visit - reviewed AP pilot usage,
+p3,2026-05-20,contact,Scheduled follow-up - ICG introduction,
+p4,2026-01-12,order,Fluorescein strips and proparacaine restock,19800
+p4,2026-02-15,contact,Phone check-in - punctal plug interest,
+p4,2026-03-10,order,Tetracaine and phenylephrine restock,17200
+p4,2026-04-08,order,Tropicamide reorder,12400
+p4,2026-05-01,contact,QBR call - discussed multi-provider onboarding,
+p5,2026-01-20,order,Fluorescein strips restock,8200
+p5,2026-02-25,contact,Phone check-in - rewards program update,
+p5,2026-03-29,order,Proparacaine and tetracaine restock,9600
+p5,2026-05-08,contact,Account review - flagged declining order volume,
+p6,2026-01-18,order,Fluorescein strips and proparacaine restock,10900
+p6,2026-02-22,contact,Email check-in - punctal plug trial,
+p6,2026-03-27,order,Tetracaine and cyclopentolate restock,9800
+p6,2026-04-30,order,Tropicamide reorder,6700
+p6,2026-05-12,contact,On-site visit - reviewed diagnostic imaging expansion,
+p7,2026-01-25,order,Fluorescein strips restock,11200
+p7,2026-03-02,contact,Phone check-in - cross-county referral discussion,
+p7,2026-03-30,order,Proparacaine and phenylephrine restock,9700
+p7,2026-05-06,contact,Account review - referral program proposal sent,
+p8,2026-01-10,order,Fluorescein strips restock (reduced volume),4100
+p8,2026-02-14,contact,Phone check-in - no response,
+p8,2026-03-12,order,Proparacaine restock (reduced volume),2900
+p8,2026-04-19,contact,Win-back call - discussed loyalty offer,
+p9,2026-01-28,order,Fluorescein strips restock,5400
+p9,2026-03-05,contact,Email check-in - starter bundle intro,
+p9,2026-04-02,order,Proparacaine and tetracaine restock,4900
+p9,2026-04-27,contact,Phone call - discussed starter bundle upsell,

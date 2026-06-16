@@ -1,0 +1,28 @@
+practice_id,contact_name,role,email,phone
+p1,Dr. Karen Whitfield,Lead Surgeon,k.whitfield@nweyesurgeons.com,(425) 555-0142
+p1,Tom Bracket,Practice Manager,t.bracket@nweyesurgeons.com,(425) 555-0143
+p1,Lena Ortiz,Office Coordinator,l.ortiz@nweyesurgeons.com,(425) 555-0144
+p2,Dr. Michael Tran,Lead Ophthalmologist,m.tran@spokaneeyeclinic.com,(206) 555-0151
+p2,Rachel Kim,Practice Manager,r.kim@spokaneeyeclinic.com,(206) 555-0152
+p2,Devon Walsh,Office Coordinator,d.walsh@spokaneeyeclinic.com,(206) 555-0153
+p3,Dr. Anita Shah,Lead Optometrist,a.shah@bellevuevision.com,(425) 555-0161
+p3,Greg Munoz,Practice Manager,g.munoz@bellevuevision.com,(425) 555-0162
+p3,Holly Brennan,Office Coordinator,h.brennan@bellevuevision.com,(425) 555-0163
+p4,Dr. Samuel Reed,Lead Ophthalmologist,s.reed@issaquaheye.com,(425) 555-0171
+p4,Priya Nair,Practice Manager,p.nair@issaquaheye.com,(425) 555-0172
+p4,Connor Hayes,Office Coordinator,c.hayes@issaquaheye.com,(425) 555-0173
+p5,Dr. Olivia Park,Lead Optometrist,o.park@rentonvision.com,(425) 555-0181
+p5,Marcus Lee,Practice Manager,m.lee@rentonvision.com,(425) 555-0182
+p5,Fiona Grant,Office Coordinator,f.grant@rentonvision.com,(425) 555-0183
+p6,Dr. Ben Castillo,Lead Ophthalmologist,b.castillo@valleyeyespecialists.com,(253) 555-0191
+p6,Nora Fields,Practice Manager,n.fields@valleyeyespecialists.com,(253) 555-0192
+p6,Aaron Pelletier,Office Coordinator,a.pelletier@valleyeyespecialists.com,(253) 555-0193
+p7,Dr. Wendy Liao,Lead Optometrist,w.liao@pugetsoundeyecare.com,(360) 555-0201
+p7,Derek Holt,Practice Manager,d.holt@pugetsoundeyecare.com,(360) 555-0202
+p7,Sophie Bauer,Office Coordinator,s.bauer@pugetsoundeyecare.com,(360) 555-0203
+p8,Dr. Carl Jennings,Lead Ophthalmologist,c.jennings@peninsulaeye.com,(360) 555-0211
+p8,Tasha Robbins,Practice Manager,t.robbins@peninsulaeye.com,(360) 555-0212
+p8,Ian Foster,Office Coordinator,i.foster@peninsulaeye.com,(360) 555-0213
+p9,Dr. Maya Lindqvist,Lead Optometrist,m.lindqvist@southsoundeye.com,(253) 555-0221
+p9,Patrick Doyle,Practice Manager,p.doyle@southsoundeye.com,(253) 555-0222
+p9,Renee Castro,Office Coordinator,r.castro@southsoundeye.com,(253) 555-0223

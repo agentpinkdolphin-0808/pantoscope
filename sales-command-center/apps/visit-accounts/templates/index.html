@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interactive Territory Map</title>
+<link rel="stylesheet" href="static/css/vendor/leaflet.css" />
+<link rel="stylesheet" href="static/css/vendor/MarkerCluster.css" />
+<link rel="stylesheet" href="static/css/vendor/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body data-username="{{ username }}">
+<div class="app-root">
+
+  <div class="kpi-strip">
+    <div class="kpi-cell">
+      <div class="kpi-label">Total Accounts</div>
+      <div class="kpi-value" id="kpi-accounts">0</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">Total Revenue (12mo)</div>
+      <div class="kpi-value" id="kpi-revenue">$0</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">Active Opportunities</div>
+      <div class="kpi-value kpi-green" id="kpi-opportunities">0</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">At Risk Accounts</div>
+      <div class="kpi-value kpi-orange" id="kpi-at-risk">0</div>
+    </div>
+    <div class="kpi-cell kpi-cell-wide">
+      <div class="kpi-label">Top Opportunity</div>
+      <div class="kpi-value" id="kpi-top-value">$0</div>
+      <div class="kpi-subtext" id="kpi-top-name">&mdash;</div>
+    </div>
+    <div class="kpi-cell kpi-cell-dropdown">
+      <div class="kpi-label">Map View</div>
+      <select class="map-view-select" id="map-view-select">
+        <option value="revenue_potential">Revenue Potential</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="main-area">
+    <div class="map-wrap">
+      <div id="map"></div>
+
+      <div class="instruction-chip">
+        <div class="instruction-row">
+          <span class="mouse-icon mouse-left" aria-hidden="true"></span>
+          <span>Left click on map to show practices in this area</span>
+        </div>
+        <div class="instruction-row">
+          <span class="mouse-icon mouse-right" aria-hidden="true"></span>
+          <span>Right click to clear blimps</span>
+        </div>
+      </div>
+
+      <div class="map-controls">
+        <button class="map-control-btn" id="zoom-in-btn" title="Zoom in">+</button>
+        <button class="map-control-btn" id="zoom-out-btn" title="Zoom out">&minus;</button>
+        <button class="map-control-btn" id="recenter-btn" title="Recenter">&#9678;</button>
+      </div>
+
+      <div class="legend-panel">
+        <div class="legend-header">
+          <span>Revenue Potential</span>
+          <select class="legend-select" id="legend-metric-select">
+            <option value="revenue_potential">Revenue Potential</option>
+          </select>
+        </div>
+        <div class="legend-row"><span class="legend-dot legend-dot-high"></span>High (&gt;$75K)</div>
+        <div class="legend-row"><span class="legend-dot legend-dot-medium"></span>Medium ($25K &ndash; $75K)</div>
+        <div class="legend-row"><span class="legend-dot legend-dot-low"></span>Low (&lt;$25K)</div>
+        <div class="legend-row"><span class="legend-dot legend-dot-risk"></span>At Risk</div>
+        <div class="legend-divider"></div>
+        <div class="legend-row legend-toggle-row">
+          <span>Cluster View</span>
+          <button class="toggle-switch is-on" id="cluster-toggle" role="switch" aria-checked="true">
+            <span class="toggle-knob"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="detail-panel" id="detail-panel" hidden>
+      <div class="detail-header">
+        <button class="detail-close" id="detail-close" aria-label="Close">&times;</button>
+        <div class="detail-title-row">
+          <h2 class="detail-name" id="detail-name">&mdash;</h2>
+          <button class="detail-star" id="detail-star" aria-label="Favorite">&#9734;</button>
+        </div>
+        <div class="detail-location" id="detail-location">&mdash;</div>
+        <span class="detail-badge" id="detail-badge">&mdash;</span>
+      </div>
+
+      <div class="detail-tabs">
+        <button class="detail-tab is-active" data-tab="overview">Overview</button>
+        <button class="detail-tab" data-tab="opportunities">Opportunities</button>
+        <button class="detail-tab" data-tab="history">History</button>
+        <button class="detail-tab" data-tab="contacts">Contacts</button>
+      </div>
+
+      <div class="detail-body" id="detail-body">
+        <!-- panes injected by app.js -->
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="static/js/vendor/leaflet.js"></script>
+<script src="static/js/vendor/leaflet.markercluster.js"></script>
+<script src="static/js/app.js"></script>
+</body>
+</html>

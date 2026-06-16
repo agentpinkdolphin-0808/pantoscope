@@ -1,0 +1,28 @@
+practice_id,opportunity_name,value,impact,stage
+p1,Expand OCT Imaging,18500,High,Negotiation
+p1,Multi-location Rollout,15200,High,Proposal
+p1,Dry Eye Program Upsell,11400,Medium,Discovery
+p1,Loyalty Tier Upgrade,7200,Medium,Discovery
+p2,Expand ICG Usage,18900,High,Negotiation
+p2,Reintroduce AK-Fluor,12400,High,Proposal
+p2,Tier 4 Rewards Qualification,6150,Medium,Discovery
+p3,Expand AP Pilot Usage,8900,High,Proposal
+p3,Introduce ICG,8850,High,Discovery
+p3,BIS Pilot Cross-Sell,2450,Medium,Discovery
+p3,Tier 4 Rewards Qualification,1400,Medium,Discovery
+p4,Expand Punctal Plug Line,7200,High,Negotiation
+p4,Dry Eye Program Upsell,6100,High,Proposal
+p4,OCT Add-on,5400,Medium,Proposal
+p4,Loyalty Tier Upgrade,4300,Medium,Discovery
+p4,Multi-provider Onboarding,3200,Medium,Discovery
+p4,Rewards Qualification,2200,Medium,Discovery
+p5,Tier 3 Rewards Qualification,4200,Medium,Discovery
+p5,Dry Eye Sample Program,3300,Medium,Discovery
+p5,Loyalty Refresh,2300,Medium,Discovery
+p6,Expand Diagnostic Imaging,5400,High,Proposal
+p6,Punctal Plug Trial,4100,Medium,Discovery
+p6,Loyalty Tier Upgrade,2900,Medium,Discovery
+p6,Rewards Qualification,1800,Medium,Discovery
+p7,Cross-County Referral Program,8900,High,Proposal
+p8,Win-back Loyalty Offer,2100,Medium,Discovery
+p9,Starter Bundle Upsell,4200,Medium,Discovery

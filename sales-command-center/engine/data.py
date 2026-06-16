@@ -178,6 +178,67 @@ def new_equipment_quotes(states, days=7):
     return result
 
 
+# -------------------------------------------------------------------------
+# Practices (territory map)
+# -------------------------------------------------------------------------
+
+def get_practices():
+    rows = _read("practices.csv")
+    for row in rows:
+        row["lat"] = float(row["lat"]) if row.get("lat") else None
+        row["lng"] = float(row["lng"]) if row.get("lng") else None
+        for field in ("revenue_12mo", "orders_12mo", "avg_order_value",
+                      "revenue_delta", "orders_delta", "aov_delta", "opportunity_total"):
+            row[field] = int(row[field]) if row.get(field) else None
+        row["at_risk"] = row.get("at_risk", "").strip().lower() == "true"
+    return rows
+
+
+def get_practice_contacts():
+    return _read("practice_contacts.csv")
+
+
+def get_practice_history():
+    return _read("practice_history.csv")
+
+
+def get_practice_opportunities():
+    return _read("practice_opportunities.csv")
+
+
+def get_practice_products():
+    return _read("practice_products.csv")
+
+
+def practices_by_id():
+    return {p["practice_id"]: p for p in get_practices()}
+
+
+def practice_detail(practice_id):
+    """Single practice plus its nested products/opportunities/history/contacts."""
+    practice = practices_by_id().get(practice_id)
+    if practice is None:
+        return None
+    detail = dict(practice)
+    detail["products"] = [
+        {**row, "spend": int(row["spend"]) if row.get("spend") else None,
+         "pct_of_spend": int(row["pct_of_spend"]) if row.get("pct_of_spend") else None}
+        for row in get_practice_products() if row["practice_id"] == practice_id
+    ]
+    detail["opportunities"] = [
+        {**row, "value": int(row["value"]) if row.get("value") else None}
+        for row in get_practice_opportunities() if row["practice_id"] == practice_id
+    ]
+    detail["history"] = [
+        {**row, "amount": int(row["amount"]) if row.get("amount") else None}
+        for row in get_practice_history() if row["practice_id"] == practice_id
+    ]
+    detail["contacts"] = [
+        row for row in get_practice_contacts() if row["practice_id"] == practice_id
+    ]
+    return detail
+
+
 def expired_equipment_quotes(states, expired_days=30):
     """
     Equipment quotes whose expires_date is more than expired_days ago, in given states.

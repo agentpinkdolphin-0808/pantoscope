@@ -2,12 +2,14 @@ import os
 import json
 import re
 import sys
+import urllib.request
+import urllib.error
 from datetime import datetime, date
 from pathlib import Path
 from functools import wraps
 from flask import (
     Flask, render_template, request, redirect, url_for,
-    session, jsonify, send_from_directory, abort
+    session, jsonify, send_from_directory, abort, Response
 )
 from flask_session import Session
 
@@ -372,14 +374,51 @@ def delete_concept(app_id):
 
 
 # ---------------------------------------------------------------------------
-# App proxy passthrough (dev: redirect; prod: nginx handles)
+# App proxy passthrough
 # ---------------------------------------------------------------------------
+# Each micro-app runs as its own local process on the port given in apps.json.
+# We proxy server-side (this process -> 127.0.0.1:<port>) so the client never
+# needs to reach "localhost" itself -- this is what makes the app work for any
+# remote viewer, not just someone browsing from the same machine the apps run
+# on. Falls back to the static placeholder if the app's local service isn't
+# up yet.
 
-@app.route("/apps/<app_name>/")
-@app.route("/apps/<app_name>/<path:rest>")
+_PROXY_EXCLUDED_REQUEST_HEADERS = {"host", "content-length", "accept-encoding"}
+_PROXY_EXCLUDED_RESPONSE_HEADERS = {"content-encoding", "content-length", "transfer-encoding", "connection"}
+
+
+def _proxy_to_app(port, rest, username):
+    target = f"http://127.0.0.1:{port}/{rest}"
+    if request.query_string:
+        target += f"?{request.query_string.decode()}"
+
+    headers = {k: v for k, v in request.headers.items()
+               if k.lower() not in _PROXY_EXCLUDED_REQUEST_HEADERS}
+    headers["X-SCC-User"] = username
+    data = request.get_data() if request.method in ("POST", "PUT", "PATCH") else None
+
+    req = urllib.request.Request(target, data=data, method=request.method, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=5) as resp:
+            body = resp.read()
+            status = resp.status
+            resp_headers = [(k, v) for k, v in resp.getheaders()
+                             if k.lower() not in _PROXY_EXCLUDED_RESPONSE_HEADERS]
+    except urllib.error.HTTPError as e:
+        body = e.read()
+        status = e.code
+        resp_headers = [(k, v) for k, v in e.headers.items()
+                         if k.lower() not in _PROXY_EXCLUDED_RESPONSE_HEADERS]
+    except (urllib.error.URLError, ConnectionError, TimeoutError, OSError):
+        return None
+
+    return Response(body, status=status, headers=resp_headers)
+
+
+@app.route("/apps/<app_name>/", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
+@app.route("/apps/<app_name>/<path:rest>", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
 @login_required
 def app_passthrough(app_name, rest=""):
-    # In dev mode without nginx, serve a placeholder page
     apps_cfg = load_apps_config()
     all_apps = []
     for section in apps_cfg.get("sections", []):
@@ -387,6 +426,12 @@ def app_passthrough(app_name, rest=""):
     app_info = next((a for a in all_apps if a["path"] == app_name), None)
     if not app_info:
         abort(404)
+
+    proxied = _proxy_to_app(app_info["port"], rest, session["username"])
+    if proxied is not None:
+        return proxied
+
+    # App's local service isn't running -- show the placeholder instead.
     return render_template("app_placeholder.html", app=app_info, user={
         "username": session["username"],
         "display_name": session["display_name"],
@@ -397,4 +442,4 @@ def app_passthrough(app_name, rest=""):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     debug = os.environ.get("FLASK_DEBUG", "1") == "1"
-    app.run(host="0.0.0.0", port=port, debug=debug)
+    app.run(host="0.0.0.0", port=port, debug=debug, threaded=True)
