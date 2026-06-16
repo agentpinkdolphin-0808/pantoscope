@@ -3,6 +3,7 @@
     {
       "apps": [
         {
+          "concept_image": "concepts/account-overview.png",
           "glyph": "account",
           "glyph_color": "#3b82f6",
           "hero": "heroes/account-overview.png",
@@ -10,8 +11,7 @@
           "path": "account-overview",
           "port": 5101,
           "subtitle": "View account details, key contacts, activities and overall account health.",
-          "title": "Customer Intelligence Agent",
-          "concept_image": "concepts/account-overview.png"
+          "title": "Customer Intelligence Agent"
         },
         {
           "glyph": "chart",
@@ -21,7 +21,7 @@
           "path": "sales-history",
           "port": 5102,
           "subtitle": "Explore historical sales data, forecast performance and deep dive into trends.",
-          "title": "Sales History"
+          "title": "Prospecting Agent"
         },
         {
           "glyph": "pipeline",
@@ -31,7 +31,7 @@
           "path": "pipeline-management",
           "port": 5103,
           "subtitle": "Track opportunities, manage stages and forecast revenue with confidence.",
-          "title": "Pipeline Management"
+          "title": "Agent"
         },
         {
           "glyph": "analytics",
