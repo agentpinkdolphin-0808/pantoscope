@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Route Finder</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- Left: Controls -->
+  <aside class="controls-panel">
+    <form id="search-form" autocomplete="off">
+
+      <div class="form-group">
+        <label for="origin">From</label>
+        <input type="text" id="origin" name="origin" placeholder="e.g. Atlanta, GA" required />
+      </div>
+
+      <div class="form-group">
+        <label for="destination">To</label>
+        <input type="text" id="destination" name="destination" placeholder="e.g. Charlotte, NC" required />
+      </div>
+
+      <div class="form-group">
+        <label for="query">Find along route</label>
+        <input type="text" id="query" name="query" placeholder="e.g. ophthalmologists" required
+          list="query-suggestions" />
+        <datalist id="query-suggestions">
+          <option value="ophthalmologists">
+          <option value="optometrists">
+          <option value="dentists">
+          <option value="pharmacies">
+          <option value="urgent care">
+          <option value="hospitals">
+          <option value="physical therapy">
+          <option value="chiropractors">
+          <option value="dermatologists">
+          <option value="restaurants">
+          <option value="gas stations">
+          <option value="hotels">
+          <option value="coffee">
+          <option value="grocery">
+        </datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="corridor">Corridor width</label>
+        <div class="corridor-row">
+          <input type="range" id="corridor" name="corridor_miles" min="1" max="50" value="10"
+            oninput="document.getElementById('corridor-label').textContent = this.value + ' mi'" />
+          <span id="corridor-label">10 mi</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="keywords">Website keywords <span class="hint">(comma-separated, optional)</span></label>
+        <input type="text" id="keywords" name="criteria_keywords"
+          placeholder="e.g. VSP, accepts new patients, pediatric" />
+      </div>
+
+      <div class="form-divider">
+        <span>Data source</span>
+      </div>
+
+      <div class="form-group">
+        <label for="doc-file">Upload document <span class="hint">(CSV, Excel, PDF)</span></label>
+        <label class="file-upload-label" for="doc-file">
+          <span id="file-name-display">Choose file...</span>
+          <input type="file" id="doc-file" name="document_file"
+            accept=".csv,.xlsx,.xls,.pdf" style="display:none"
+            onchange="handleFileSelect(this)" />
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="gsheet-url">or Google Sheet URL</label>
+        <input type="text" id="gsheet-url" name="document_url"
+          placeholder="https://docs.google.com/spreadsheets/d/..." />
+      </div>
+
+      <button type="submit" id="search-btn" class="btn-primary">
+        <span id="btn-label">Search Route</span>
+        <span id="btn-spinner" class="spinner hidden"></span>
+      </button>
+
+    </form>
+
+    <div id="error-box" class="error-box hidden"></div>
+
+    <div id="meta-box" class="meta-box hidden">
+      <div id="meta-text"></div>
+    </div>
+  </aside>
+
+  <!-- Center: Results -->
+  <section class="results-panel">
+    <div id="results-header" class="results-header hidden">
+      <div class="results-header-top">
+        <strong id="results-count">0 results</strong>
+        <span id="results-subtitle"></span>
+      </div>
+      <div class="results-filters">
+        <label class="filter-check">
+          <input type="checkbox" id="filter-matched" checked>
+          <span>Keyword matches</span>
+        </label>
+        <label class="filter-check">
+          <input type="checkbox" id="filter-unmatched" checked>
+          <span>No matches</span>
+        </label>
+      </div>
+    </div>
+    <div id="results-list" class="results-list">
+      <div class="empty-state">
+        <p>Enter a route above and click <strong>Search Route</strong> to find places along the way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Right: Map -->
+  <div class="map-panel">
+    <div id="map"></div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="static/js/app.js"></script>
+</body>
+</html>

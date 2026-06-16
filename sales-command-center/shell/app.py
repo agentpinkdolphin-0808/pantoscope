@@ -399,7 +399,7 @@ def _proxy_to_app(port, rest, username):
 
     req = urllib.request.Request(target, data=data, method=request.method, headers=headers)
     try:
-        with urllib.request.urlopen(req, timeout=5) as resp:
+        with urllib.request.urlopen(req, timeout=300) as resp:
             body = resp.read()
             status = resp.status
             resp_headers = [(k, v) for k, v in resp.getheaders()

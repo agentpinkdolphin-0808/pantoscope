@@ -1,7 +1,4 @@
 flask>=3.0
-flask-session>=0.6
-anthropic>=0.30
-python-dotenv>=1.0
 shapely>=2.0
 pandas>=2.0
 openpyxl>=3.1
@@ -10,3 +7,4 @@ gspread>=6.0
 requests>=2.31
 lxml>=5.0
 pdfplumber>=0.11
+python-dotenv>=1.0
