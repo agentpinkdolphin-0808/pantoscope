@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sales Command Center — Sign In</title>
+  <title>Pantoscope — Sign In</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -37,22 +37,16 @@
     }
     .logo {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 2.5rem;
+      gap: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
     }
-    .logo-mark {
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: white;
-      flex-shrink: 0;
+    .logo-image {
+      width: 240px;
+      height: auto;
+      border-radius: 24px;
     }
     .logo-text {
       font-size: 1rem;
@@ -141,10 +135,10 @@
 <body>
   <div class="login-wrap">
     <div class="logo">
-      <div class="logo-mark">S</div>
+      <img class="logo-image" src="/static/branding/pantoscope-logo.png" alt="Pantoscope">
       <div class="logo-text">
-        Sales Command Center
-        <span>One unified platform.</span>
+        Pantoscope
+        <span>See everything.</span>
       </div>
     </div>
     <div class="card">
@@ -170,7 +164,7 @@
         <button type="submit">Sign In</button>
       </form>
     </div>
-    <p class="footer-note">Sales Command Center &mdash; Internal use only.</p>
+    <p class="footer-note">Pantoscope &mdash; Internal use only.</p>
   </div>
 </body>
 </html>
