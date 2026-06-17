@@ -573,6 +573,14 @@ body {
 
 .iframe-pool iframe.active { display: block; }
 
+.ai-chat-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* =====================================================================
    PANEL PAGES (Dream, Settings, etc.)
    ===================================================================== */

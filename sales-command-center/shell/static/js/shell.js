@@ -694,6 +694,15 @@ document.querySelectorAll('.nav-item[data-view]').forEach(el => {
       buildRecentGrid();
     }
 
+    if (view === 'ai-chat') {
+      setHeaderForShell('AI Chat', 'Your eye-care assistant.');
+      const iframe = $('ai-chat-iframe');
+      if (iframe && !iframe.dataset.loaded) {
+        iframe.src = '/apps/eyecare-assistant/';
+        iframe.dataset.loaded = '1';
+      }
+    }
+
     showView(view);
   });
 });

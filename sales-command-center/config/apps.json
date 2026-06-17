@@ -1,4 +1,11 @@
 {
+  "ai_chat": {
+    "id": "eyecare-assistant",
+    "path": "eyecare-assistant",
+    "port": 5206,
+    "title": "Eye Care Assistant",
+    "subtitle": "Eye-care & ophthalmic-pharma chat assistant."
+  },
   "sections": [
     {
       "apps": [
@@ -21,7 +28,7 @@
           "id": "sales-history",
           "path": "sales-history",
           "port": 5102,
-          "subtitle": "Explore historical sales data, forecast performance and deep dive into trends.",
+          "subtitle": "Identify new prospects, profile cold accounts and predict their likely product needs.",
           "title": "Prospecting Agent"
         },
         {
@@ -32,7 +39,7 @@
           "id": "pipeline-management",
           "path": "pipeline-management",
           "port": 5103,
-          "subtitle": "Track opportunities, manage stages and forecast revenue with confidence.",
+          "subtitle": "Track open opportunities, advance deal stages and forecast revenue with confidence.",
           "title": "Opportunity Agent"
         },
         {
@@ -43,7 +50,7 @@
           "id": "reports-analytics",
           "path": "reports-analytics",
           "port": 5104,
-          "subtitle": "Access detailed reports and analytics to drive data-backed decisions.",
+          "subtitle": "Build quotes, compare pricing tiers and assemble proposals in minutes.",
           "title": "Pricing Agent"
         },
         {
@@ -54,7 +61,7 @@
           "id": "team-performance",
           "path": "team-performance",
           "port": 5105,
-          "subtitle": "Monitor team KPIs, activity trends and overall team performance.",
+          "subtitle": "Search across every account, filter by any field and open records instantly.",
           "title": "Customer Search"
         }
       ],
@@ -73,7 +80,7 @@
           "id": "route-planner",
           "path": "route-planner",
           "port": 5201,
-          "subtitle": "Plan efficient routes, optimize stops and save time in the field.",
+          "subtitle": "See accounts on a live map, aligned with the details of the account.",
           "title": "Route Planner"
         },
         {
@@ -93,7 +100,7 @@
           "id": "merchandising",
           "path": "merchandising",
           "port": 5203,
-          "subtitle": "Capture shelf photos, track compliance and manage merchandising tasks.",
+          "subtitle": "List all your distributor reps in one place, organized by state and distributor.",
           "title": "Distributor Rep Portal"
         },
         {
@@ -103,7 +110,7 @@
           "id": "surveys-feedback",
           "path": "surveys-feedback",
           "port": 5204,
-          "subtitle": "Collect feedback, run surveys and share product intel from the field.",
+          "subtitle": "Capture field leads, qualify them fast and route them to the right rep.",
           "title": "Smart Sheet Leads"
         },
         {
@@ -113,7 +120,7 @@
           "id": "orders-invoices",
           "path": "orders-invoices",
           "port": 5205,
-          "subtitle": "Create orders, view invoices and track order status from anywhere.",
+          "subtitle": "Compile distributor sales by month, organized by state, product line, distributor and rep.",
           "title": "Tracings Compiler Agent"
         }
       ],

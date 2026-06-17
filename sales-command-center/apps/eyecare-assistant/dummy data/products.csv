@@ -1,0 +1,9 @@
+product_id,product_name,category,unit_price,sale_price
+P001,Fluorescein Strips,dye,18.50,
+P002,AltaFluor,dye,22.00,17.50
+P003,AK-Fluor,dye,24.75,
+P004,Bio-Glo,dye,19.25,
+P005,Proparacaine 0.5%,anesthetic,14.00,
+P006,Tetracaine 0.5%,anesthetic,13.50,11.00
+P007,Phenylephrine 2.5%,dilating,16.75,
+P008,Tropicamide 1%,dilating,15.20,12.99

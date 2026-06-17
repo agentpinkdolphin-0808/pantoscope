@@ -1,0 +1,240 @@
+{
+  "username": "jskinner",
+  "role": "internal",
+  "states": "ALL",
+  "run_at": "2026-06-16T18:24:55.077106Z",
+  "tardy_days": 35,
+  "quote_stale_days": 30,
+  "new_equipment_days": 7,
+  "equipment_expired_days": 30,
+  "top_accounts_analyzed": 23,
+  "tokens_used": 0,
+  "tardy_accounts": [
+    {
+      "account_id": "A013",
+      "account_name": "Cactus Eye Specialists",
+      "state": "AZ",
+      "account_manager": "evanarsdale",
+      "total_spend": 9400.0,
+      "last_order_date": "2026-05-08",
+      "days_since_order": 39
+    },
+    {
+      "account_id": "A010",
+      "account_name": "Mountain West Eye Care",
+      "state": "NV",
+      "account_manager": "evanarsdale",
+      "total_spend": 7800.0,
+      "last_order_date": "2026-05-01",
+      "days_since_order": 46
+    },
+    {
+      "account_id": "A006",
+      "account_name": "Golden State Vision",
+      "state": "CA",
+      "account_manager": "jskinner",
+      "total_spend": 7300.0,
+      "last_order_date": "2026-05-05",
+      "days_since_order": 42
+    },
+    {
+      "account_id": "A019",
+      "account_name": "Sierra Nevada Optics",
+      "state": "CA",
+      "account_manager": "evanarsdale",
+      "total_spend": 4200.0,
+      "last_order_date": "2026-03-22",
+      "days_since_order": 86
+    },
+    {
+      "account_id": "A021",
+      "account_name": "Panhandle Eye Care",
+      "state": "TX",
+      "account_manager": "jdruce",
+      "total_spend": 3300.0,
+      "last_order_date": "2026-01-20",
+      "days_since_order": 147
+    },
+    {
+      "account_id": "A009",
+      "account_name": "Cascade Vision Group",
+      "state": "OR",
+      "account_manager": "evanarsdale",
+      "total_spend": 3100.0,
+      "last_order_date": "2026-04-01",
+      "days_since_order": 76
+    },
+    {
+      "account_id": "A025",
+      "account_name": "Lone Pine Optical",
+      "state": "TX",
+      "account_manager": "jdruce",
+      "total_spend": 2900.0,
+      "last_order_date": "2026-02-28",
+      "days_since_order": 108
+    },
+    {
+      "account_id": "A004",
+      "account_name": "Sun Valley Optometry",
+      "state": "NV",
+      "account_manager": "evanarsdale",
+      "total_spend": 2200.0,
+      "last_order_date": "2026-03-30",
+      "days_since_order": 78
+    },
+    {
+      "account_id": "A012",
+      "account_name": "Valley View Vision",
+      "state": "WA",
+      "account_manager": "jrisley",
+      "total_spend": 1800.0,
+      "last_order_date": "2026-02-14",
+      "days_since_order": 122
+    }
+  ],
+  "stale_quotes": [
+    {
+      "quote_id": "Q2001",
+      "account_id": "A001",
+      "account_name": "Spokane Eye Clinic",
+      "amount": 4500.0,
+      "created_date": "2026-05-01",
+      "days_open": 46,
+      "state": "WA"
+    },
+    {
+      "quote_id": "Q2002",
+      "account_id": "A003",
+      "account_name": "Desert Vision Center",
+      "amount": 9200.0,
+      "created_date": "2026-04-08",
+      "days_open": 69,
+      "state": "AZ"
+    },
+    {
+      "quote_id": "Q2004",
+      "account_id": "A007",
+      "account_name": "Lone Star Optics",
+      "amount": 35000.0,
+      "created_date": "2026-03-15",
+      "days_open": 93,
+      "state": "TX"
+    },
+    {
+      "quote_id": "Q2008",
+      "account_id": "A016",
+      "account_name": "Texas State Optometry",
+      "amount": 62000.0,
+      "created_date": "2026-02-10",
+      "days_open": 126,
+      "state": "TX"
+    },
+    {
+      "quote_id": "Q2009",
+      "account_id": "A018",
+      "account_name": "Northwest Eye Partners",
+      "amount": 16500.0,
+      "created_date": "2026-05-05",
+      "days_open": 42,
+      "state": "WA"
+    },
+    {
+      "quote_id": "Q2010",
+      "account_id": "A020",
+      "account_name": "Harbor Eye Associates",
+      "amount": 8900.0,
+      "created_date": "2026-03-28",
+      "days_open": 80,
+      "state": "CA"
+    },
+    {
+      "quote_id": "Q2012",
+      "account_id": "A006",
+      "account_name": "Golden State Vision",
+      "amount": 11200.0,
+      "created_date": "2026-04-14",
+      "days_open": 63,
+      "state": "CA"
+    },
+    {
+      "quote_id": "Q2014",
+      "account_id": "A017",
+      "account_name": "Bayou Vision Center",
+      "amount": 14000.0,
+      "created_date": "2026-03-01",
+      "days_open": 107,
+      "state": "LA"
+    }
+  ],
+  "new_equipment_quotes": [
+    {
+      "quote_id": "EQ3001",
+      "account_id": "A004",
+      "account_name": "Sun Valley Optometry",
+      "amount": 15000.0,
+      "created_date": "2026-06-09",
+      "state": "NV"
+    },
+    {
+      "quote_id": "EQ3002",
+      "account_id": "A007",
+      "account_name": "Lone Star Optics",
+      "amount": 48000.0,
+      "created_date": "2026-06-11",
+      "state": "TX"
+    },
+    {
+      "quote_id": "EQ3004",
+      "account_id": "A016",
+      "account_name": "Texas State Optometry",
+      "amount": 95000.0,
+      "created_date": "2026-06-12",
+      "state": "TX"
+    },
+    {
+      "quote_id": "EQ3006",
+      "account_id": "A019",
+      "account_name": "Sierra Nevada Optics",
+      "amount": 18500.0,
+      "created_date": "2026-06-10",
+      "state": "CA"
+    },
+    {
+      "quote_id": "EQ3013",
+      "account_id": "A018",
+      "account_name": "Northwest Eye Partners",
+      "amount": 67000.0,
+      "created_date": "2026-06-12",
+      "state": "WA"
+    },
+    {
+      "quote_id": "EQ3015",
+      "account_id": "A006",
+      "account_name": "Golden State Vision",
+      "amount": 29000.0,
+      "created_date": "2026-06-11",
+      "state": "CA"
+    }
+  ],
+  "expired_equipment_quotes": [
+    {
+      "quote_id": "EQ3009",
+      "account_id": "A010",
+      "account_name": "Mountain West Eye Care",
+      "amount": 19000.0,
+      "expires_date": "2026-05-15",
+      "days_expired": 32,
+      "state": "NV"
+    },
+    {
+      "quote_id": "EQ3012",
+      "account_id": "A022",
+      "account_name": "Olympic Eye Center",
+      "amount": 42000.0,
+      "expires_date": "2026-04-05",
+      "days_expired": 72,
+      "state": "WA"
+    }
+  ],
+  "saved_at": "2026-06-16T182455Z"
+}

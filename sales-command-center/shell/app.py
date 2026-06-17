@@ -423,6 +423,8 @@ def app_passthrough(app_name, rest=""):
     all_apps = []
     for section in apps_cfg.get("sections", []):
         all_apps.extend(section.get("apps", []))
+    if apps_cfg.get("ai_chat"):
+        all_apps.append(apps_cfg["ai_chat"])
     app_info = next((a for a in all_apps if a["path"] == app_name), None)
     if not app_info:
         abort(404)
